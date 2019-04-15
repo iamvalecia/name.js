@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+          body{
+            margin: 0px;
+          }
+          #header{
+            background-color: red;
+            height: 250px;
+          }
+          #hello{
+            font-size: 125px;
+            margin: 0px 0px 0px 75px; 
+            /*top, right, bottom and left portions of the box model*/
+            padding: 0px 0px 0px 0px;
+          }
+          #questionGreeting{
+            margin-left: 325px;
+            font-size: 45px; /*25*/
+            padding: 0px 0px 0px 0px;
+            margin: 25px 0px 0px 375px;
+          }
+          #addNameInput{
+            font-size: 25px;
+            width: 25%;
+            margin-left: 25px;
+            margin-right: 25px;
+            border-radius: 8px;
+          }
+          #addNameButton{
+            padding: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
+            border-radius: 8px;
+            font-size: 20px;
+            background-color: orange;
+          }
+        </style>  
+    </head> 
+    
+    <body>
+        <div id="header">
+        <h1 id='hello'>Hello, Stranger!</h1>
+        
+        <p id='questionGreeting'>
+            What's your name?
+            <input id="addNameInput" type="text" maxlength="15" >
+            <button id="addNameButton" onclick="greetByName()">Enter</button>
+        </p>
+        </div>
+        
+        <script>
+            var addNameInput = document.getElementById('addNameInput');
+            var addNameButton = document.getElementById('addNameButton');
+            var enterPressed = false;
+            
+            function greetByName() { 
+              console.log('Nice to meet you,', addNameInput.value +'.');
+              document.getElementById("questionGreeting").innerHTML = "Nice to meet you.";
+              document.getElementById("questionGreeting").style.fontSize ='45px';
+              document.getElementById("questionGreeting").style.marginLeft = '475px';
+              var hello = document.querySelector('#hello')
+              hello.textContent = 'Hello, ' + addNameInput.value + '!';
+            };
+            function enterPressed() {
+              if(enterPressed) {
+                greetByName();
+              }
+            };
+            
+            document.addEventListener("keydown", keyDownHandler, false);
+            document.addEventListener("keyup", keyUpHandler, false);
+            function keyDownHandler(e) {
+              if(e.keyCode === 13) {
+                enterPressed = true;
+              }
+            };
+            function keyUpHandler(e) {
+              if(e.keyCode == 13) {
+                rightPressed = false;
+              }
+            };
+        </script>
+    </body>
+    
+</html>
