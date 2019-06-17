@@ -7,7 +7,10 @@
           }
           #header{
             background-color: red;
-            height: 250px;
+
+           height:15%;
+
+           width:100%;
           }
           #hello{
             font-size: 125px;
@@ -53,33 +56,24 @@
         <script>
             var addNameInput = document.getElementById('addNameInput');
             var addNameButton = document.getElementById('addNameButton');
-            //var enterPressed = false;
            
             function greetByName() { 
               if(addNameInput.value.length >= 2 ) {
-                  console.log('Nice to meet you,', addNameInput.value +'.');
-                  document.getElementById("questionGreeting").innerHTML = "Nice to meet you.";
-                  document.getElementById("questionGreeting").style.fontSize ='45px';
-                  document.getElementById("questionGreeting").style.marginLeft = '475px';
-                  var hello = document.querySelector('#hello')
-                  hello.textContent = 'Hello, ' + addNameInput.value + '!';
+                console.log('Nice to meet you,', addNameInput.value +'.');
+                document.getElementById("questionGreeting").innerHTML = "Nice to meet you.";
+                document.getElementById("questionGreeting").style.fontSize ='45px';
+                document.getElementById("questionGreeting").style.marginLeft = '475px';
+                var hello = document.querySelector('#hello')
+                hello.textContent = 'Hello, ' + addNameInput.value + '!';
               }
             };
                
-            document.addEventListener("keydown", keyDownHandler, false);
-            //document.addEventListener("keyup", keyUpHandler, false);
+            document.getElementById('addNameInput').addEventListener("keydown", keyDownHandler, false);
             function keyDownHandler(e) {
-              //if (e.Key === "Enter") { < also works
               if(e.keyCode === 13) {
-                //enterPressed = true;
                 greetByName();
               }
             };
-            // function keyUpHandler(e) {
-            //   if(e.keyCode == 13) {
-            //     enterPressed = false;
-            //   }
-            // };
         </script> 
     </body>
     
