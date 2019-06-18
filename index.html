@@ -58,7 +58,16 @@
             var addNameButton = document.getElementById('addNameButton');
            
             function greetByName() { 
-              if(addNameInput.value.length >= 2 ) {
+              var spaceInNameCount = 0
+              for (i = 0; i < addNameInput.value.length; i++) {
+                var spaceInName = addNameInput.value[i].includes(" ")
+                if (spaceInName === true) {
+                  spaceInNameCount = spaceInNameCount + 1
+                }
+              }   
+              var nameLength = addNameInput.value.length - spaceInNameCount
+
+              if (nameLength >= 1) {
                 console.log('Nice to meet you,', addNameInput.value +'.');
                 document.getElementById("questionGreeting").innerHTML = "Nice to meet you.";
                 document.getElementById("questionGreeting").style.fontSize ='45px';
